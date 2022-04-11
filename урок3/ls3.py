@@ -23,4 +23,6 @@ while True:
         print("That is right")
         break
     else:
-        print("That is wrong")
+        печать ( "Это неправильно" )
+
+
