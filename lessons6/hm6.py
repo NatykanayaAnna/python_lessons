@@ -11,7 +11,7 @@ def square():
 
 
 def triangle():
-    tr_side = float(input("Enter the side of the triangle"))
+    tr_side = float(input("Enter the side of the triangle:\n"))
     tr_per = 3 * tr_side
     print('Triangle perimetr:\n', tr_per)
 
