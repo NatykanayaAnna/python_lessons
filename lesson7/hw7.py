@@ -4,7 +4,6 @@ import random
 def random_word():
     words_list = ["apple", "dog", "flower", "pineapple", "wolf"]
     rand_word = random.choice(words_list)
-    print(rand_word)
     return rand_word
 
 
@@ -14,11 +13,9 @@ def lenght_word(rand_word):
     count_letters = lenght * ' _ '
     print(count_letters)
 
-
-lenght_word(random_word())
-
 guessed_letters = []
 word = random_word()
+lenght_word(word)
 while True:
     guess = input("Enter a letter:\n")
     if guess in word:
