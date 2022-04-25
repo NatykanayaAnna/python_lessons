@@ -2,7 +2,7 @@ import random
 
 
 def random_word():
-    words_list = ["apple", "dog", "flower", "pineapple", "wolf"]
+    words_list = ["apple", "dog", "flower", "pineapple", "wolf", "cat"]
     rand_word = random.choice(words_list)
     return rand_word
 
