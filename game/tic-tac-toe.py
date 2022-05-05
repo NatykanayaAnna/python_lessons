@@ -58,22 +58,23 @@ def player_move():
     return user_field
 
 
-def check_fied(avaliable_fields, ch_field):
-    for field in avaliable_fields:
-        if field == ch_field:
-            print("Field avaliable")
+def check_fied(avaliable_fields, checking_field):
+    if checking_field in avaliable_fields:
+        return CENTER_FIELDS[checking_field]
+    return False
 
 
-def draw_cross(x, y):
-    line_1 = Line(Point(x - 50, y-50), Point(x + 50, y + 50))
+def draw_cross(center):
+    line_1 = Line(Point(center[0] - 50, center[1]-50), Point(center[0] + 50, center[1] + 50))
     line_1.setWidth(3)
     line_1.draw(win)
-    line_2 = Line(Point(x + 50, y - 50), Point(x - 50, y + 50))
+    line_2 = Line(Point(center[0] + 50, center[1] - 50), Point(center[0] - 50, center[1] + 50))
     line_2.setWidth(3)
     line_2.draw(win)
 
 
 avaliable_fields = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+CENTER_FIELDS = [(150, 150), (250, 150), (350, 150), (150, 250), (250, 250), (350, 250), (150, 350), (250, 350), (350, 350)]
 field()
 text_you()
 text_comp()
@@ -81,9 +82,15 @@ text_comp()
 while True:
     click = player_move()
     if click != None:
-        check_fied(avaliable_fields, click)
-        draw_cross(x, y)
-        break
+        print(click)
+        center_fields = check_fied(avaliable_fields, click)
+        print(center_fields)
+        if center_fields:
+            draw_cross(center_fields)
+
+        else:
+            pass # add error message
+        # break
 
 
 win.getMouse()
