@@ -97,6 +97,14 @@ while True:
         else:
             pass
             # add message
+        print(click)
+        center_fields = check_fied(avaliable_fields, click)
+        print(center_fields)
+        if center_fields:
+            draw_cross(center_fields)
+
+        else:
+            pass # add error message
         # break
 
 
