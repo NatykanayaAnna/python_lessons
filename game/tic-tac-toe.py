@@ -82,14 +82,11 @@ text_comp()
 while True:
     click = player_move()
     if click != None:
-        print(click)
         center_fields = check_fied(avaliable_fields, click)
-        print(center_fields)
         if center_fields:
             draw_cross(center_fields)
-
         else:
-            pass # add error message
+            print("This field is filled. Choose the another field.")
         # break
 
 
