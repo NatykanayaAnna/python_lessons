@@ -76,6 +76,7 @@ def draw_cross(center):
 def computer_move(comp_fields, avaliable_fields):
     for fields in comp_fields:
         if fields in avaliable_fields:
+            pass
             # draw circle
 
 
@@ -89,9 +90,7 @@ text_comp()
 while True:
     click = player_move()
     if click != None:
-        print(click)
         center_fields = check_fied(avaliable_fields, click)
-        print(center_fields)
         if center_fields:
             draw_cross(center_fields)
             avaliable_fields.pop(click)
