@@ -73,8 +73,16 @@ def draw_cross(center):
     line_2.draw(win)
 
 
+def computer_move(comp_fields, avaliable_fields):
+    for fields in comp_fields:
+        if fields in avaliable_fields:
+            # draw circle
+
+
+
 avaliable_fields = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 CENTER_FIELDS = [(150, 150), (250, 150), (350, 150), (150, 250), (250, 250), (350, 250), (150, 350), (250, 350), (350, 350)]
+comp_fields = [4, 0, 2, 6, 8, 1, 3, 5, 7]
 field()
 text_you()
 text_comp()
@@ -85,6 +93,7 @@ while True:
         center_fields = check_fied(avaliable_fields, click)
         if center_fields:
             draw_cross(center_fields)
+            avaliable_fields.pop(click)
         else:
             print("This field is filled. Choose the another field.")
         # break
