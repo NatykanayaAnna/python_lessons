@@ -1,13 +1,15 @@
-# номер 88
+# exercise 88
 
 
-nums = [4, 10, 20, 2, 1]        # я не знаю, как правильно попросить пользователя ввести список, поэтому сделала свой
-nums = sorted(nums)
-nums.reverse()
-print(nums)
+user_list = []
+user_string = input('Input list use comma')
+user_list= list(user_string)
+user_list = sorted(user_list)
+user_list.reverse()
+print(user_list)
 
 
-# номер 93
+# ex.93
 
 
 # numbers = []
@@ -23,14 +25,14 @@ print(nums)
 # removed_nums.append(selected_number)
 
 
-# номер 94
+# ex. 94
 
 
 # nums = [4, 7, 6, 30, 10]
 # print(nums)
 # while True:
 #     selected_num = int(input("Select the number:\n"))
-#     if selected_num not in nums:                          # можно ли использовать not in?
+#     if selected_num not in nums:
 #         print("Try again.")
 #     else:
 #         print("Position of that number is", nums.index(selected_num))
