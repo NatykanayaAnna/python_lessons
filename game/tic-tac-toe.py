@@ -76,9 +76,6 @@ def draw_cross(center):
 def computer_move(comp_fields, avaliable_fields):
     for fields in comp_fields:
         if fields in avaliable_fields:
-            # draw circle
-
-
 
 avaliable_fields = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 CENTER_FIELDS = [(150, 150), (250, 150), (350, 150), (150, 250), (250, 250), (350, 250), (150, 350), (250, 350), (350, 350)]
