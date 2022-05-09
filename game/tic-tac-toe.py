@@ -30,6 +30,11 @@ def text_comp():
     text.draw(win)
 
 
+def text_error():
+    text = Text(Point(250, 450), 'This field is filled. Choose the another field')
+    text.draw(win)
+
+
 def player_move():
     user_field = None
     click = win.checkMouse()
@@ -76,6 +81,10 @@ def draw_cross(center):
 def computer_move(comp_fields, avaliable_fields):
     for fields in comp_fields:
         if fields in avaliable_fields:
+            pass
+            # draw circle
+
+
 
 avaliable_fields = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 CENTER_FIELDS = [(150, 150), (250, 150), (350, 150), (150, 250), (250, 250), (350, 250), (150, 350), (250, 350), (350, 350)]
@@ -92,7 +101,7 @@ while True:
             draw_cross(center_fields)
             avaliable_fields.pop(click)
         else:
-            print("This field is filled. Choose the another field.")
+            text_error()
         # break
 
 
