@@ -88,8 +88,8 @@ def computer_move(comp_fields, avaliable_fields):
     for field in comp_fields:
         if field in avaliable_fields:
             draw_circle(CENTER_FIELDS[field])
-            comp_fields.pop(field)
-            avaliable_fields.pop(field)
+            comp_fields.remove(field)
+            avaliable_fields.remove(field)
             break
             # print(avaliable_fields)
 
@@ -107,7 +107,7 @@ while True:
         center_fields = check_fied(avaliable_fields, click)
         if center_fields:
             draw_cross(center_fields)
-            avaliable_fields.pop(click)
+            avaliable_fields.remove(click)
             computer_move(comp_fields, avaliable_fields)
         else:
             text_error()
