@@ -70,12 +70,18 @@ def check_fied(avaliable_fields, checking_field):
 
 
 def draw_cross(center):
-    line_1 = Line(Point(center[0] - 50, center[1]-50), Point(center[0] + 50, center[1] + 50))
+    line_1 = Line(Point(center[0] - 45, center[1]-45), Point(center[0] + 45, center[1] + 45))
     line_1.setWidth(3)
     line_1.draw(win)
-    line_2 = Line(Point(center[0] + 50, center[1] - 50), Point(center[0] - 50, center[1] + 50))
+    line_2 = Line(Point(center[0] + 45, center[1] - 45), Point(center[0] - 45, center[1] + 45))
     line_2.setWidth(3)
     line_2.draw(win)
+
+
+def draw_circle(center):
+    circle = Circle(Point(center[0], center[1]), 45)
+    circle.setWidth(3)
+    circle.draw(win)
 
 
 def computer_move(comp_fields, avaliable_fields):
@@ -84,6 +90,14 @@ def computer_move(comp_fields, avaliable_fields):
             pass
             # draw circle
 
+def computer_move(comp_fields, avaliable_fields):
+    for field in comp_fields:
+        if field in avaliable_fields:
+            draw_circle(CENTER_FIELDS[field])
+            comp_fields.pop(field)
+            avaliable_fields.pop(field)
+            break
+            # print(avaliable_fields)
 
 
 avaliable_fields = [0, 1, 2, 3, 4, 5, 6, 7, 8]
@@ -100,6 +114,7 @@ while True:
         if center_fields:
             draw_cross(center_fields)
             avaliable_fields.pop(click)
+            computer_move(comp_fields, avaliable_fields)
         else:
             text_error()
         # break
