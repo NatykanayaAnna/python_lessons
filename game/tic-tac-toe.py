@@ -85,6 +85,12 @@ def draw_circle(center):
 
 
 def computer_move(comp_fields, avaliable_fields):
+    for fields in comp_fields:
+        if fields in avaliable_fields:
+            pass
+            # draw circle
+
+def computer_move(comp_fields, avaliable_fields):
     for field in comp_fields:
         if field in avaliable_fields:
             draw_circle(CENTER_FIELDS[field])
