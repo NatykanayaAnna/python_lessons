@@ -90,6 +90,7 @@ def computer_move(comp_fields, avaliable_fields):
             draw_circle(CENTER_FIELDS[field])
             comp_fields.remove(field)
             avaliable_fields.remove(field)
+            computers_move.append(field)
             break
             # print(avaliable_fields)
 
@@ -108,11 +109,22 @@ def check_winner(ways_to_win, moves):
     return False
 
 
+def user_win_message():
+    text = Text(Point(250, 450), 'You won!')
+    text.draw(win)
+
+
+def comp_win_message():
+    text = Text(Point(250, 450), 'The computer won!')
+    text.draw(win)
+
+
 avaliable_fields = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 CENTER_FIELDS = [(150, 150), (250, 150), (350, 150), (150, 250), (250, 250), (350, 250), (150, 350), (250, 350), (350, 350)]
 ways_to_win = [(0, 1, 3), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6)]
 comp_fields = [4, 0, 2, 6, 8, 1, 3, 5, 7]
 players_move = []
+computers_move = []
 field()
 text_you()
 text_comp()
@@ -128,9 +140,14 @@ while True:
             if len(players_move) >= 3:
                 result = check_winner(ways_to_win, players_move)
                 if result:
-                    print("You win")  # add function that print message
+                    user_win_message()
                     break
             computer_move(comp_fields, avaliable_fields)
+            if len(computers_move) >= 3:
+                result = check_winner(ways_to_win, computers_move)
+                if result:
+                    comp_win_message()
+                    break
         else:
             text_error()
         # break
