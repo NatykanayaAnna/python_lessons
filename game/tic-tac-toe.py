@@ -91,13 +91,11 @@ def computer_move(comp_fields, avaliable_fields):
             avaliable_fields.remove(field)
             computers_move.append(field)
             return CENTER_FIELDS[field]
-            # print(avaliable_fields)
 
 
 def check_winner(ways_to_win, moves):
     match = 0
     for row in ways_to_win:
-        # if row  moves:
         for element in row:
             if element in moves:
                 match += 1
@@ -117,13 +115,16 @@ def comp_win_message():
     text = Text(Point(250, 450), 'The computer won!')
     text.draw(win)
 
-def choose_x_o():
+def choose_x_o():   # delete this function
     text = Text(Point(300, 200), 'Choose X or O')
     text.setSize(24)
     text.draw(win)
 
 
 def choose_character():
+    # text = Text(Point(300, 200), 'Choose X or O')
+    # text.setSize(24)
+    # text.draw(win)
     click = win.getMouse()
     if click != None:
         click_x = click.getX()
@@ -134,14 +135,28 @@ def choose_character():
             return "X"
 
 
-win = GraphWin('lesson_1', 600, 600)
+# def check_user_win():
+#     if len(players_move) >= 3:
+#         result = check_winner(ways_to_win, players_move)
+#         if result:
+#             user_win_message()
+#
+#
+# def check_comp_win():
+#     if len(computers_move) >= 3:
+#         result = check_winner(ways_to_win, computers_move)
+#         if result:
+#             comp_win_message()
+#
+#
+win = GraphWin('tic-tac-toe', 600, 600)
 win.setBackground('white')
-choose_x_o()
+choose_x_o()  #delete this line
 draw_circle((350, 275))
 draw_cross((250, 275))
 players_character = choose_character()
 win.close()
-win = GraphWin('lesson_1', 600, 600)
+win = GraphWin('tic-tac-toe', 600, 600)
 win.setBackground('white')
 
 avaliable_fields = [0, 1, 2, 3, 4, 5, 6, 7, 8]
@@ -162,6 +177,8 @@ if players_character == "X":
                 draw_cross(center_fields)
                 players_move.append(click)
                 avaliable_fields.remove(click)
+                # delete 181-184 lines
+                # check_user_win()
                 if len(players_move) >= 3:
                     result = check_winner(ways_to_win, players_move)
                     if result:
@@ -170,7 +187,8 @@ if players_character == "X":
                 comp_field = computer_move(comp_fields, avaliable_fields)
                 if comp_field:
                     draw_circle(comp_field)
-                print(computers_move)
+                # delete 191-194 lines
+                # check_comp_win()
                 if len(computers_move) >= 3:
                     result = check_winner(ways_to_win, computers_move)
                     if result:
@@ -183,9 +201,10 @@ else:
     text_comp("X")
     while True:
         comp_field = computer_move(comp_fields, avaliable_fields)
-        print(computers_move)
         if comp_field:
             draw_cross(comp_field)
+        # delete 208-211 lines
+        # check_comp_win()
         if len(computers_move) >= 3:
             result = check_winner(ways_to_win, computers_move)
             if result:
@@ -199,6 +218,8 @@ else:
                     draw_circle(center_fields)
                     players_move.append(click)
                     avaliable_fields.remove(click)
+                    # delete 218-221 lines
+                    # check_user_win()
                     if len(players_move) >= 3:
                         result = check_winner(ways_to_win, players_move)
                         if result:
@@ -207,11 +228,12 @@ else:
                     break
                 else:
                     text_error()
+                # delete 228-232 lines
+                # check_user_win()
                 if len(players_move) >= 3:
                     result = check_winner(ways_to_win, players_move)
                     if result:
                         user_win_message()
                         break
-
-
+                # why do we need this code (233-237)?
 win.getMouse()
