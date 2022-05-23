@@ -115,6 +115,7 @@ def comp_win_message():
     text = Text(Point(250, 450), 'The computer won!')
     text.draw(win)
 
+
 def choose_x_o():   # delete this function
     text = Text(Point(300, 200), 'Choose X or O')
     text.setSize(24)
@@ -133,6 +134,12 @@ def choose_character():
             return "O"
         if 205 < click_x < 295 and 230 < click_y < 320:
             return "X"
+
+
+def check_draw():
+    if len(players_move) > 3 and len(computers_move) > 3:
+        text = Text(Point(250, 450), 'Draw!')
+        text.draw(win)
 
 
 # def check_user_win():
@@ -194,6 +201,10 @@ if players_character == "X":
                     if result:
                         comp_win_message()
                         break
+                result = check_winner(ways_to_win, computers_move)
+                if len(avaliable_fields) == 0 and result == False:
+                    check_draw()
+                    break
             else:
                 text_error()
 else:
@@ -210,6 +221,10 @@ else:
             if result:
                 comp_win_message()
                 break
+        result = check_winner(ways_to_win, computers_move)
+        if len(avaliable_fields) == 0 and result == False:
+            check_draw()
+            break
         while True:
             click = player_move()
             if click != None:
