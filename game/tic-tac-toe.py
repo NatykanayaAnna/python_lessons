@@ -1,4 +1,5 @@
 from graphics import *
+import timeit
 
 
 def field():
@@ -111,7 +112,12 @@ def choose_character():
 
 def check_win(moves_list, ways_to_win):
     if len(players_move) >= 3:
-        return check_winner(ways_to_win, moves_list)
+        start = timeit.default_timer()
+        # Your statements here
+        returned = check_winner(ways_to_win, moves_list)
+        stop = timeit.default_timer()
+        print('Time: ', stop - start)
+        return returned
     return False
 
 
@@ -165,6 +171,9 @@ else:
         comp_field = computer_move(comp_fields, avaliable_fields)
         if comp_field:
             draw_cross(comp_field)
+        if check_win(players_move, ways_to_win):
+            text_message((250, 450), 'You won!')
+            break
         if check_win(computers_move, ways_to_win):
                 text_message((250, 450), 'The computer won!')
                 break
@@ -186,8 +195,14 @@ else:
                     break
                 else:
                     text_message((250, 450), 'This field is filled. Choose the another field')
-                if check_win(players_move, ways_to_win):
-                        text_message((250, 450), 'You won!')
-                        break
-                # why do we need this code (233-237)?
+                # if check_win(players_move, ways_to_win):
+                #         text_message((250, 450), 'You won!')
+                #         break
 win.getMouse()
+# Time:  4.499999704421498e-06
+# Time:  3.300001480965875e-06
+# Time:  3.399998604436405e-06
+
+# Time:  4.499999704421498e-06
+# Time:  3.4000004234258085e-06
+# Time:  3.0000010156072676e-06
