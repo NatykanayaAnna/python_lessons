@@ -112,12 +112,16 @@ def choose_character():
 
 def check_win(moves_list, ways_to_win):
     if len(players_move) >= 3:
+
         start = timeit.default_timer()
         # Your statements here
         returned = check_winner(ways_to_win, moves_list)
         stop = timeit.default_timer()
         print('Time: ', stop - start)
         return returned
+
+        return check_winner(ways_to_win, moves_list)
+
     return False
 
 
@@ -171,9 +175,11 @@ else:
         comp_field = computer_move(comp_fields, avaliable_fields)
         if comp_field:
             draw_cross(comp_field)
+
         if check_win(players_move, ways_to_win):
             text_message((250, 450), 'You won!')
             break
+
         if check_win(computers_move, ways_to_win):
                 text_message((250, 450), 'The computer won!')
                 break
@@ -195,9 +201,16 @@ else:
                     break
                 else:
                     text_message((250, 450), 'This field is filled. Choose the another field')
+
                 # if check_win(players_move, ways_to_win):
                 #         text_message((250, 450), 'You won!')
                 #         break
+
+                if check_win(players_move, ways_to_win):
+                        text_message((250, 450), 'You won!')
+                        break
+                # why do we need this code (233-237)?
+
 win.getMouse()
 # Time:  4.499999704421498e-06
 # Time:  3.300001480965875e-06
