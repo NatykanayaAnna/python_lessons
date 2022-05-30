@@ -86,16 +86,21 @@ def computer_move(comp_fields, avaliable_fields):
             return CENTER_FIELDS[field]
 
 
+# def check_winner(ways_to_win, moves):
+#     match = 0
+#     for row in ways_to_win:
+#         for element in row:
+#             if element in moves:
+#                 match += 1
+#                 continue
+#         if match == 3:
+#             return True
+#         match = 0
+#     return False
 def check_winner(ways_to_win, moves):
-    match = 0
     for row in ways_to_win:
-        for element in row:
-            if element in moves:
-                match += 1
-                continue
-        if match == 3:
+        if len(set(row) & set(moves)) == 3:
             return True
-        match = 0
     return False
 
 
